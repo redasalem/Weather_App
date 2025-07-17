@@ -32,13 +32,8 @@
 
 ---
 
-## 📁 هيكلة المشروع
-
-
----
 
 ## ⚙️ خطوات التشغيل محليًا
-
 ```bash
 git clone https://github.com/your-username/weather-pulse.git
 cd weather-pulse
