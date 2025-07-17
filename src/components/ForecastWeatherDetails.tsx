@@ -40,10 +40,10 @@ export default function ForecastWeatherDetails(props:ForecastWeatherDetailProps)
         </div>
         {/* */}
         <div className='flex flex-col px-4 items-center'>
-          <p className='text-xs space-x-1 whitespace-nowrap'>
+          <div className='text-xs space-x-1 whitespace-nowrap'>
           <p className='text-5xl'>{ConvertKalvintoslices(temp ?? 0)}°</p>
           <p>feels likes {ConvertKalvintoslices(feels_like ?? 0)}°</p>
-          </p>
+          </div>
           <p className='capitalize'>{description}</p>
         </div>
         

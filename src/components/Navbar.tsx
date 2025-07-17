@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // react icons
 import { MdWbSunny } from "react-icons/md";
 import { FaLocationCrosshairs } from "react-icons/fa6";
@@ -7,7 +7,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import SearchBox from './SearchBox';
 import axios from 'axios';
 import SuggestionBox from './suggestionBox';
-import { useAtom } from "jotai"
+import { useSetAtom } from "jotai"
 import { placeAtom } from "../app/atom";
 
 type Props = {location?:string};
@@ -19,8 +19,13 @@ export default function Navbar({location}:Props) {
     const [erorr, setErorr] = useState('');
     const [suggestions, setsuggestions] = useState<string[]>([]);
     const [showsuggestions, setshowsuggestions] = useState(false);
-    const [place, setPlace] = useAtom(placeAtom);
+    const setPlace = useSetAtom(placeAtom);
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setcity('Paris');
+        setPlace('Paris');
+    }, [setPlace]);
 
     async function handleInputChange(value:string){
         setcity(value)
@@ -138,7 +143,7 @@ export default function Navbar({location}:Props) {
                     )}
                 </button>
                 <MdOutlineLocationOn className='text-2xl sm:text-3xl shrink-0' />
-                <p className='text-slate-900/80 text-xs sm:text-sm hidden xs:block'>{location}</p>
+                <span className='text-slate-900/80 text-xs sm:text-sm hidden xs:block'>{location}</span>
                 <div className='relative w-full max-w-[300px]'>
                     {/* searchbox */}
                     <SearchBox

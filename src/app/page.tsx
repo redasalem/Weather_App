@@ -78,7 +78,7 @@ export interface CityInfo {
 }
 
 export default function Home() {
-  const [place, setPlace] = useAtom(placeAtom);
+  const [place] = useAtom(placeAtom);
   const { isPending, error, data, refetch } = useQuery({
     queryKey: ['repoData'],
     queryFn: async () => {
